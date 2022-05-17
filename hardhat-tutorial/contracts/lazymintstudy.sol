@@ -1,8 +1,9 @@
+pragma solidity 0.8.3
 
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
-// File: CryptoBearWatchClub.sol
-
-pragma solidity 0.8.11;
 
 //contrato herdando os contratos ERC721, Ownable e ReentrancyGuard do openzeppelin
 contract LazyMintStudy is ERC721, Ownable, ReentrancyGuard {
@@ -48,7 +49,7 @@ ao invés de já ter um preço fixo para o public sale, acredito nao ser algo va
 
 /* mapear e gravar qual o último block que o endereço entrou no mint
 isso previne que contratos/pessoas mintem mais nfts do que o permitido 
-no nosso caso guarante que mesmo se o usuario apertar mais de uma vez o botao de mint, nao ira ultrapassar 
+no nosso caso garante que mesmo se o usuario apertar mais de uma vez o botao de mint, nao ira ultrapassar 
 o mint maximo permitido*/
 
     mapping(address => uint256) public lastMintBlock;
